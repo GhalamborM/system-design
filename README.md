@@ -75,7 +75,7 @@ _This course is also available on my [website](https://karanpratapsingh.com/cour
 
   - [System Design Interviews](#system-design-interviews)
   - [URL Shortener](#url-shortener)
-  - [Whatsapp](#whatsapp)
+  - [WhatsApp](#whatsapp)
   - [Twitter](#twitter)
   - [Netflix](#netflix)
   - [Uber](#uber)
@@ -4024,7 +4024,7 @@ To make our system more resilient we can do the following:
 
 # WhatsApp
 
-Let's design a [WhatsApp](https://whatsapp.com) like instant messaging service, similar to services like [WhatsApp](https://www.whatsapp.com), [Facebook Messenger](https://www.messenger.com), and [WeChat](https://www.wechat.com).
+Let's design a [WhatsApp](https://whatsapp.com) like instant messaging service, similar to services like [Facebook Messenger](https://www.messenger.com), and [WeChat](https://www.wechat.com).
 
 ## What is WhatsApp?
 
@@ -4144,6 +4144,7 @@ This table basically represents a private chat between two users and can contain
 This table maps users and chats as multiple users can have multiple chats (N:M relationship) and vice versa.
 
 **groups**
+
 This table represents a group made up of multiple users.
 
 **users_groups**
@@ -5526,7 +5527,7 @@ The client can periodically send an HTTP request to servers to report its curren
 
 The client opens a long-lived connection with the server and once new data is available it will be pushed to the client. We can use [WebSockets](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#websockets) or [Server-Sent Events (SSE)](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#server-sent-events-sse) for this.
 
-The pull model approach is not scalable as it will create unnecessary request overhead on our servers and most of the time the response will be empty, thus wasting our resources. To minimize latency, using the push model with [WebSockets](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#websockets) is a better choice because then we can push data to the client once it's available without any delay given the connection is open with the client. Also, WebSockets provide full-duplex communication, unlike [Server-Sent Events (SSE)](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#server-sent-events-sse) which are only unidirectional.
+The pull model approach is not scalable as it will create unnecessary request overhead on our servers and most of the time the response will be empty, thus wasting our resources. To minimize latency, using the push model with [WebSockets](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#websockets) is a better choice because then we can push data to the client once it's available without any delay, given the connection is open with the client. Also, WebSockets provide full-duplex communication, unlike [Server-Sent Events (SSE)](https://karanpratapsingh.com/courses/system-design/long-polling-websockets-server-sent-events#server-sent-events-sse) which are only unidirectional.
 
 Additionally, the client application should have some sort of background job mechanism to ping GPS location while the application is in the background.
 
@@ -5596,7 +5597,7 @@ Handling payments at scale is challenging, to simplify our system we can use a t
 
 Push notifications will be an integral part of our platform. We can use a message queue or a message broker such as [Apache Kafka](https://kafka.apache.org) with the notification service to dispatch requests to [Firebase Cloud Messaging (FCM)](https://firebase.google.com/docs/cloud-messaging) or [Apple Push Notification Service (APNS)](https://developer.apple.com/documentation/usernotifications) which will handle the delivery of the push notifications to user devices.
 
-_For more details, refer to the [WhatsApp](https://karanpratapsingh.com/courses/system-design/whatsapp#notifications) system design where we discuss push notifications._
+_For more details, refer to the [WhatsApp](https://karanpratapsingh.com/courses/system-design/whatsapp#notifications) system design where we discuss push notifications in detail._
 
 ## Detailed design
 
